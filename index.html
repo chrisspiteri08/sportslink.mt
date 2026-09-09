@@ -9,7 +9,7 @@
   <title>Sports Marketing &amp; Digital Services Malta | SportsLink</title>
   <link rel="icon" href="assets/images/logo.png">
   <link rel="preload" href="assets/images/hero-v2.jpg" as="image">
-  <link rel="stylesheet" href="assets/styles.css?v=7">
+  <link rel="stylesheet" href="assets/styles.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -210,6 +210,7 @@
             </select>
           </label>
           <label>Tell us about your goals<textarea name="message" rows="5" minlength="10" maxlength="2000" required></textarea></label>
+          <label class="captcha-field"><span id="captcha-question">Loading security question…</span><input type="number" name="captcha" inputmode="numeric" min="0" max="30" required aria-describedby="captcha-help"><small id="captcha-help">A quick check to prevent automated spam.</small></label>
           <label class="consent"><input type="checkbox" name="privacy" value="yes" required><span>I agree that SportsLink may use these details to respond to my enquiry. See the <a href="privacy.html">privacy policy</a>.</span></label>
           <div class="website-field" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <button class="button form-button" type="submit">Send enquiry</button>
@@ -226,6 +227,6 @@
       <p class="copyright">© <span id="year"></span> SportsLink Digital. All rights reserved.</p>
     </div>
   </footer>
-  <script src="assets/site.js?v=3"></script>
+  <script src="assets/site.js?v=4"></script>
 </body>
 </html>

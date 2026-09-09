@@ -1,6 +1,13 @@
 <?php
 declare(strict_types=1);
 
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
 session_start();
 
 function finish(string $status): void
@@ -29,6 +36,20 @@ $email = trim((string) ($_POST['email'] ?? ''));
 $service = trim((string) ($_POST['service'] ?? ''));
 $message = trim((string) ($_POST['message'] ?? ''));
 $privacy = (string) ($_POST['privacy'] ?? '');
+$captcha = trim((string) ($_POST['captcha'] ?? ''));
+$captchaAnswer = $_SESSION['captcha_answer'] ?? null;
+$captchaIssued = (int) ($_SESSION['captcha_issued'] ?? 0);
+unset($_SESSION['captcha_answer'], $_SESSION['captcha_issued']);
+
+$captchaValid = is_int($captchaAnswer)
+    && ctype_digit($captcha)
+    && (int) $captcha === $captchaAnswer
+    && $captchaIssued > 0
+    && ($now - $captchaIssued) <= 900;
+
+if (!$captchaValid) {
+    finish('captcha');
+}
 
 $services = [
     'Web development',

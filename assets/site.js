@@ -30,5 +30,23 @@ if (formStatus) {
   } else if (status === 'slow') {
     formStatus.textContent = 'Please wait a moment before sending another enquiry.';
     formStatus.classList.add('error');
+  } else if (status === 'captcha') {
+    formStatus.textContent = 'The security answer was incorrect or expired. Please try the new question.';
+    formStatus.classList.add('error');
   }
+}
+
+const captchaQuestion = document.querySelector('#captcha-question');
+const contactForm = document.querySelector('.contact-form');
+if (captchaQuestion && contactForm) {
+  fetch('captcha.php', { credentials: 'same-origin', cache: 'no-store' })
+    .then((response) => {
+      if (!response.ok) throw new Error('Captcha unavailable');
+      return response.json();
+    })
+    .then((data) => { captchaQuestion.textContent = data.question; })
+    .catch(() => {
+      captchaQuestion.textContent = 'Security question unavailable. Please use email or WhatsApp.';
+      contactForm.querySelector('button[type="submit"]').disabled = true;
+    });
 }
