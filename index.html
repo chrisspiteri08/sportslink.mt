@@ -9,7 +9,7 @@
   <title>Sports Marketing &amp; Digital Services Malta | SportsLink</title>
   <link rel="icon" href="assets/images/logo.png">
   <link rel="preload" href="assets/images/hero-v2.jpg" as="image">
-  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=6">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -182,15 +182,38 @@
 
     <section class="contact" id="contact">
       <div class="shell contact-grid">
-        <div>
+        <div class="contact-intro">
           <p class="eyebrow light">Your next move</p>
           <h2>Ready to raise your digital game?</h2>
           <p>Tell us where you want to go. We’ll help map the way forward.</p>
+          <div class="contact-card">
+            <a href="mailto:hello@sportslink.mt"><span>Email</span>hello@sportslink.mt</a>
+            <a href="https://wa.me/35677779332" target="_blank" rel="noopener"><span>WhatsApp</span>+356 7777 9332</a>
+          </div>
         </div>
-        <div class="contact-card">
-          <a href="mailto:hello@sportslink.mt"><span>Email</span>hello@sportslink.mt</a>
-          <a href="https://wa.me/35677779332" target="_blank" rel="noopener"><span>WhatsApp</span>+356 7777 9332</a>
-        </div>
+        <form class="contact-form" action="contact.php" method="post">
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <div class="form-row">
+            <label>Full name<input type="text" name="name" autocomplete="name" maxlength="80" required></label>
+            <label>Email address<input type="email" name="email" autocomplete="email" maxlength="120" required></label>
+          </div>
+          <label>What can we help with?
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option>Web development</option>
+              <option>Social media management</option>
+              <option>Content writing</option>
+              <option>Digital strategy</option>
+              <option>Player social media management</option>
+              <option>Athlete development and mentoring</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Tell us about your goals<textarea name="message" rows="5" minlength="10" maxlength="2000" required></textarea></label>
+          <label class="consent"><input type="checkbox" name="privacy" value="yes" required><span>I agree that SportsLink may use these details to respond to my enquiry. See the <a href="privacy.html">privacy policy</a>.</span></label>
+          <div class="website-field" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="button form-button" type="submit">Send enquiry</button>
+        </form>
       </div>
     </section>
   </main>
@@ -203,6 +226,6 @@
       <p class="copyright">© <span id="year"></span> SportsLink Digital. All rights reserved.</p>
     </div>
   </footer>
-  <script src="assets/site.js?v=2"></script>
+  <script src="assets/site.js?v=3"></script>
 </body>
 </html>
