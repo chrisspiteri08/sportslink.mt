@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SportsLink connects Malta’s athletes with suitable business partners through carefully matched, commercially sensible partnerships.">
+  <meta name="theme-color" content="#091932">
+  <link rel="canonical" href="https://sportslink.mt/network/">
+  <title>SportsLink Athlete Partnership Network | Malta</title>
+  <link rel="icon" href="/assets/images/logo.png">
+  <link rel="stylesheet" href="/assets/styles.css?v=9">
+</head>
+<body class="inner-page network-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header solid">
+    <div class="shell nav-wrap">
+      <a class="brand" href="/"><img src="/assets/images/logo.png" width="250" height="60" alt="SportsLink Digital"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+      <nav id="site-nav" aria-label="Main navigation"><a href="/services.html">Services</a><a href="/player-social-media.html">For athletes</a><a href="/network/" aria-current="page">Network</a><a href="/#about">About</a><a href="/#team">Team</a><a class="nav-cta" href="/#contact">Let’s talk</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="network-hero">
+      <div class="shell network-hero-grid">
+        <div>
+          <p class="eyebrow light">Athlete and business partnerships</p>
+          <h1>SportsLink Athlete Partnership Network</h1>
+          <p class="network-proposition">Connecting Malta’s athletes with the right partners.</p>
+          <p>SportsLink brings athletes and businesses together to create partnerships that make sense for both sides. Join the network and tell us what you’re looking for.</p>
+          <div class="button-row"><a class="button primary" href="#network-form" data-route-link="athlete">I’m an Athlete</a><a class="button secondary" href="#network-form" data-route-link="business">I Represent a Business</a></div>
+        </div>
+        <div class="network-principle"><span>How it works</span><strong>Listen.</strong><strong>Understand.</strong><strong>Make the right introduction.</strong></div>
+      </div>
+    </section>
+
+    <section class="section network-explainer">
+      <div class="shell">
+        <div class="section-heading"><div><p class="eyebrow">A considered approach</p><h2>Partnerships, not listings.</h2></div><p>This is not an open sponsorship marketplace. SportsLink acts as the intermediary: we learn what each athlete needs and what each business wants to achieve, then identify appropriate opportunities for a conversation.</p></div>
+        <div class="network-audiences">
+          <article><span>For athletes</span><h3>Tell us where you’re going.</h3><p>Share your sporting level, achievements, goals, audience, current partners, and the support that could make a meaningful difference.</p><a href="#network-form" data-route-link="athlete">Join as an athlete <span aria-hidden="true">→</span></a></article>
+          <article><span>For businesses</span><h3>Tell us what a good partnership means to you.</h3><p>Share your objectives, interests, preferred sports, and likely support level so we can consider athletes whose story and direction fit.</p><a href="#network-form" data-route-link="business">Join as a business <span aria-hidden="true">→</span></a></article>
+        </div>
+        <p class="network-note">Joining the network does not guarantee sponsorship, funding, support, or a partnership. SportsLink reviews each submission and only makes introductions when there appears to be a sensible fit.</p>
+      </div>
+    </section>
+
+    <section class="network-form-section" id="network-form">
+      <div class="shell network-form-shell">
+        <div class="network-form-intro"><p class="eyebrow light">Join the network</p><h2>Start with what you need.</h2><p>Choose the route that applies to you. The form will adapt so we can understand the essentials without wasting your time.</p></div>
+        <form class="contact-form network-form" action="/network-submit.php" method="post">
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <fieldset class="route-choice">
+            <legend>I am joining as…</legend>
+            <label><input type="radio" name="route" value="athlete" checked><span>I’m an Athlete</span></label>
+            <label><input type="radio" name="route" value="business"><span>I Represent a Business</span></label>
+          </fieldset>
+
+          <div class="route-fields" data-fields-for="athlete">
+            <div class="form-row"><label>Name<input type="text" name="athlete_name" autocomplete="name" maxlength="100" required></label><label>Email<input type="email" name="athlete_email" autocomplete="email" maxlength="150" required></label></div>
+            <div class="form-row"><label>Phone<input type="tel" name="athlete_phone" autocomplete="tel" maxlength="30" required></label><label>Sport<input type="text" name="sport" maxlength="100" required></label></div>
+            <label>Current level<select name="current_level" required><option value="">Select your current level</option><option>Development / Youth</option><option>Club</option><option>National</option><option>International</option><option>Professional</option><option>Other</option></select></label>
+            <label>Key achievements<textarea name="achievements" rows="4" maxlength="2000" required></textarea></label>
+            <label>Upcoming goals or competitions<textarea name="goals" rows="4" maxlength="2000" required></textarea></label>
+            <label>Social media or website links<textarea name="athlete_links" rows="3" maxlength="1000" placeholder="One link per line"></textarea></label>
+            <label>Current sponsors<textarea name="current_sponsors" rows="3" maxlength="1500" placeholder="Write none if you do not currently have sponsors"></textarea></label>
+            <label>Type of support or partnership sought<textarea name="support_sought" rows="4" maxlength="2000" required></textarea></label>
+            <label>Tell us about yourself<textarea name="athlete_about" rows="5" maxlength="3000" required></textarea></label>
+          </div>
+
+          <div class="route-fields" data-fields-for="business" hidden>
+            <div class="form-row"><label>Company<input type="text" name="company" autocomplete="organization" maxlength="150" disabled required></label><label>Contact name<input type="text" name="business_contact" autocomplete="name" maxlength="100" disabled required></label></div>
+            <div class="form-row"><label>Role<input type="text" name="business_role" autocomplete="organization-title" maxlength="100" disabled required></label><label>Email<input type="email" name="business_email" autocomplete="email" maxlength="150" disabled required></label></div>
+            <div class="form-row"><label>Phone<input type="tel" name="business_phone" autocomplete="tel" maxlength="30" disabled required></label><label>Industry<input type="text" name="industry" maxlength="120" disabled required></label></div>
+            <fieldset class="interest-options"><legend>Partnership interests</legend><label><input type="checkbox" name="interests[]" value="Athlete Sponsorship" disabled> Athlete Sponsorship</label><label><input type="checkbox" name="interests[]" value="Brand Ambassador" disabled> Brand Ambassador</label><label><input type="checkbox" name="interests[]" value="Content Partnership" disabled> Content Partnership</label><label><input type="checkbox" name="interests[]" value="Events" disabled> Events</label><label><input type="checkbox" name="interests[]" value="CSR / Community" disabled> CSR / Community</label><label><input type="checkbox" name="interests[]" value="Product / Service Support" disabled> Product / Service Support</label><label><input type="checkbox" name="interests[]" value="Not Sure Yet" disabled> Not Sure Yet</label></fieldset>
+            <label>Sports of interest<input type="text" name="sports_interest" maxlength="300" disabled required></label>
+            <label>Approximate budget or support level <small>(optional)</small><input type="text" name="budget" maxlength="200" disabled></label>
+            <label>Partnership objectives<textarea name="objectives" rows="5" maxlength="2500" disabled required></textarea></label>
+            <label>Additional information<textarea name="business_additional" rows="4" maxlength="2500" disabled></textarea></label>
+          </div>
+
+          <label class="captcha-field"><span id="captcha-question">Loading security question…</span><input type="number" name="captcha" inputmode="numeric" min="0" max="30" required aria-describedby="captcha-help"><small id="captcha-help">A quick check to prevent automated spam.</small></label>
+          <label class="consent"><input type="checkbox" name="privacy" value="yes" required><span>I agree that SportsLink may use these details to assess potential partnership matches and contact me about relevant opportunities. I understand that joining does not guarantee a partnership. See the <a href="/privacy.html">privacy policy</a>.</span></label>
+          <div class="website-field" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="button form-button" type="submit">Submit to the network</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-grid"><img src="/assets/images/logo.png" width="250" height="60" alt="SportsLink Digital"><p>Digital solutions for the organisations that move sport forward.</p><div class="footer-links"><a href="/services.html">Services</a><a href="/network/">Network</a><a href="/privacy.html">Privacy</a></div><p class="copyright">© <span id="year"></span> SportsLink Digital. All rights reserved.</p></div></footer>
+  <script src="/assets/site.js?v=5"></script>
+</body>
+</html>

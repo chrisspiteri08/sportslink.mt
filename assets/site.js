@@ -17,7 +17,8 @@ document.querySelectorAll('#year').forEach((year) => { year.textContent = new Da
 
 const formStatus = document.querySelector('#form-status');
 if (formStatus) {
-  const status = new URLSearchParams(window.location.search).get('contact');
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('contact') || params.get('network');
   if (status === 'sent') {
     formStatus.textContent = 'Thanks—your enquiry has been sent. We’ll be in touch.';
     formStatus.classList.add('success');
@@ -39,7 +40,7 @@ if (formStatus) {
 const captchaQuestion = document.querySelector('#captcha-question');
 const contactForm = document.querySelector('.contact-form');
 if (captchaQuestion && contactForm) {
-  fetch('captcha.php', { credentials: 'same-origin', cache: 'no-store' })
+  fetch('/captcha.php', { credentials: 'same-origin', cache: 'no-store' })
     .then((response) => {
       if (!response.ok) throw new Error('Captcha unavailable');
       return response.json();
@@ -49,4 +50,32 @@ if (captchaQuestion && contactForm) {
       captchaQuestion.textContent = 'Security question unavailable. Please use email or WhatsApp.';
       contactForm.querySelector('button[type="submit"]').disabled = true;
     });
+}
+
+const routeInputs = document.querySelectorAll('input[name="route"]');
+const routeGroups = document.querySelectorAll('[data-fields-for]');
+
+function setNetworkRoute(route) {
+  routeInputs.forEach((input) => { input.checked = input.value === route; });
+  routeGroups.forEach((group) => {
+    const active = group.dataset.fieldsFor === route;
+    group.hidden = !active;
+    group.querySelectorAll('input, select, textarea').forEach((field) => { field.disabled = !active; });
+  });
+}
+
+if (routeInputs.length && routeGroups.length) {
+  routeInputs.forEach((input) => input.addEventListener('change', () => setNetworkRoute(input.value)));
+  document.querySelectorAll('[data-route-link]').forEach((link) => link.addEventListener('click', () => setNetworkRoute(link.dataset.routeLink)));
+  setNetworkRoute(document.querySelector('input[name="route"]:checked')?.value || 'athlete');
+}
+
+const interestBoxes = [...document.querySelectorAll('input[name="interests[]"]')];
+if (interestBoxes.length) {
+  const syncInterestRequirement = () => {
+    interestBoxes[0].required = !interestBoxes.some((box) => box.checked);
+  };
+  interestBoxes.forEach((box) => box.addEventListener('change', syncInterestRequirement));
+  routeInputs.forEach((input) => input.addEventListener('change', syncInterestRequirement));
+  syncInterestRequirement();
 }
