@@ -67,7 +67,11 @@ function setNetworkRoute(route) {
 if (routeInputs.length && routeGroups.length) {
   routeInputs.forEach((input) => input.addEventListener('change', () => setNetworkRoute(input.value)));
   document.querySelectorAll('[data-route-link]').forEach((link) => link.addEventListener('click', () => setNetworkRoute(link.dataset.routeLink)));
-  setNetworkRoute(document.querySelector('input[name="route"]:checked')?.value || 'athlete');
+  const requestedRoute = new URLSearchParams(window.location.search).get('route');
+  const initialRoute = requestedRoute === 'business' || requestedRoute === 'athlete'
+    ? requestedRoute
+    : document.querySelector('input[name="route"]:checked')?.value || 'athlete';
+  setNetworkRoute(initialRoute);
 }
 
 const interestBoxes = [...document.querySelectorAll('input[name="interests[]"]')];
